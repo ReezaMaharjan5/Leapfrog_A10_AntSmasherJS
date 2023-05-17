@@ -18,7 +18,6 @@ drawBall=(x,y) => {
     main_container.appendChild(ball_el);
 };
 
-
 //funtion to move the balls
 moveBall = (x, y, dx, dy) => {
     const main_container =document.querySelector(".container");
@@ -27,10 +26,10 @@ moveBall = (x, y, dx, dy) => {
     main_container.removeChild(document.querySelector(".ball"));
 
     //condition for the ball to bounce back to the walls of the box
-    if(this.x + 20 >= main_container.offsetWidth || this.x < 0){
+    if(this.x + this.dx+20 >= main_container.offsetWidth || this.x < 0){
         this.dx *= -1;
     }
-    if(this.y + 20 >= main_container.offsetWidth || this.y < 0){
+    if(this.y + this.dy+ 20 >= main_container.offsetWidth || this.y < 0){
         this.dy *= -1;
     } 
     
@@ -39,41 +38,23 @@ moveBall = (x, y, dx, dy) => {
     this.drawBall(this.x,this.y);
 };
 
-
 //call the funtions for the display and movement of the ball
 init = () => {
     this.drawBall(this.x, this.y);
     setInterval(() => {
         this.moveBall(this.x, this.y, this.dx, this.dy);
-    },50);
+    },60);
 };
 };
 
-
-//random measurements given to the ball
-const ball = new ballGenerate(100, 100, 10, 5);
-
-const ball1 = new ballGenerate(200, 200, 0, 10);
-const ball2 = new ballGenerate(300, 300, 10, 0);
-
-const ball3 = new ballGenerate(400, 400, 10, 4);
-
-const ball4 = new ballGenerate(470, 100, 5, 15);
-
-
+for (let i = 0; i < 40; i++){
+    let a = Math.floor(Math.random()*470) + 1;
+    let b = Math.floor(Math.random()*470) + 1;
+    let c = Math.floor(Math.random()*(26-15))+15;
+    let d = Math.floor(Math.random()*(26-15))+15;
+    const ball = new ballGenerate(a, b, c, d);
 ball.init();
-ball2.init();
-ball1.init();
-ball3.init();
-ball4.init();
-
-
-let x = Math.floor(Math.random()*470) + 1;
-console.log(x);
-
-
-
-
+};
 
 
 //un comment all for functional approach
@@ -139,31 +120,12 @@ console.log(x);
 
 
 
-// class Employe{
-//     constructor(name1,address){
-//         this.name = name1;
-//         this.address = address;
-//     }
-//     getName(){
-//         console.log(this.address);
-//     }
-// }
-
-// let employe1 = new Employe("reeza");
-// employe1.getName(); 
 
 
-// function Square(){}
-//     Square.prototype.x = 10;
-//     Square.prototype.y = 10;
-//     Square.prototype.getArea = function(){
-//         return this.x * this.y;
-//     }
-   
-// var a1= new Square();
-// console.log(a1.x);
-// console.log(a1.y);
-// console.log(a1.getArea);
-// console.log(a1.function());
+
+
+
+
+
 
 
