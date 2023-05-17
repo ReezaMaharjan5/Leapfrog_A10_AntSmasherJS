@@ -1,6 +1,4 @@
-
-
-
+//class to generate balls
 class ballGenerate {
     constructor(x, y, dx, dy){
         this.x = x;
@@ -9,7 +7,7 @@ class ballGenerate {
         this.dy = dy;
     }
 
-
+//funtion to draw the balls
 drawBall=(x,y) => {
     const main_container=document.querySelector('.container');
     const ball_el = document.createElement('div');
@@ -20,9 +18,15 @@ drawBall=(x,y) => {
     main_container.appendChild(ball_el);
 };
 
+
+//funtion to move the balls
 moveBall = (x, y, dx, dy) => {
     const main_container =document.querySelector(".container");
+
+    //remove the consecutive previous ball after transition 
     main_container.removeChild(document.querySelector(".ball"));
+
+    //condition for the ball to bounce back to the walls of the box
     if(this.x + 20 >= main_container.offsetWidth || this.x < 0){
         this.dx *= -1;
     }
@@ -35,6 +39,8 @@ moveBall = (x, y, dx, dy) => {
     this.drawBall(this.x,this.y);
 };
 
+
+//call the funtions for the display and movement of the ball
 init = () => {
     this.drawBall(this.x, this.y);
     setInterval(() => {
@@ -44,7 +50,7 @@ init = () => {
 };
 
 
-
+//random measurements given to the ball
 const ball = new ballGenerate(100, 100, 10, 5);
 
 const ball1 = new ballGenerate(200, 200, 0, 10);
@@ -53,9 +59,6 @@ const ball2 = new ballGenerate(300, 300, 10, 0);
 const ball3 = new ballGenerate(400, 400, 10, 4);
 
 const ball4 = new ballGenerate(470, 100, 5, 15);
-
-
-
 
 
 ball.init();
