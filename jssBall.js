@@ -47,6 +47,7 @@ init = () => {
 };
 };
 
+//generating random variable for ball construction
 for (let i = 0; i < 40; i++){
     let a = Math.floor(Math.random()*470) + 1;
     let b = Math.floor(Math.random()*470) + 1;
